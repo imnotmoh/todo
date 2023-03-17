@@ -1,0 +1,54 @@
+.logo-div {
+    background-color: #BCCEF8;
+    color: #98A8F8;
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.logo-div a {
+    margin: auto 0;
+    
+
+}
+.form-divv {
+    width: 30%;
+    height: 40%;
+    margin: auto;
+}
+
+.form-divv a {
+    margin-left: 75%;
+}
+
+.task-div {
+    height: 700px;
+    margin-top: 20px;
+    width: 100%;
+    background-color: #98A8F8;
+}
+
+.task-div h2 {
+    color: #f9fcff;
+}
+#submit-button {
+            margin-top: 15px;
+            --bs-btn-color: #6c757d;
+            --bs-btn-border-color: #CDFCF6;
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: #CDFCF6;
+            --bs-btn-hover-border-color: #CDFCF6;
+            --bs-btn-focus-shadow-rgb: 108, 117, 125;
+            --bs-btn-active-color: #fff;
+            --bs-btn-active-bg: #6c757d;
+            --bs-btn-active-border-color: #6c757d;
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #6c757d;
+            --bs-btn-disabled-bg: transparent;
+            --bs-btn-disabled-border-color: #6c757d;
+            --bs-gradient: none;
+        
+}
