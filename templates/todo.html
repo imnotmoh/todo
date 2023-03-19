@@ -11,47 +11,125 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-    
+        <script src="https://kit.fontawesome.com/d79ba28750.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='js/my_script.js')}}"></script>
 </head>
 
 <body>
+
     {%import "bootstrap/wtf.html" as wtf%}
     {%include "logo.html"%}
-    <div class="task-div row">
+    <div class="task-div">
+        <div class="task-head-div">
+        <div class="btn-group btn-sm add-btn-div">
+            <button class="btn btn-secondary btn-sm dropdown-toggle add-btn" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                add task
+            </button>
+            <div class="dropdown-menu">
+        
+                {{wtf.quick_form(form, novalidate=True, id="form2")}}
+            </div>
+        </div>
+
         <h2>tasks</h2>
-        <div class="completed col-6-lg">
-            {%for task in track_list%}
-            hello
-            {%if task.status_complete:%}
-            <div class="completed-card">
-                   <h1> i'm here </h1>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        completed
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="completed">
+                            <div class="row uncom-stack">
+                                {%for task in task_list%}
+                                {%if task.status_complete:%}
+
+                            <div class="col-lg-6">
+                                <div class="completed-card card">
+                                    <a href="{{url_for('delete', id=task.id)}}"><i class="fa-solid fa-xmark"></i></a>
+                                    <div class="card-info">
+                                        <div class="datetime ">
+                                        <h2 class="time">{{task.time.strftime("%I:%M %p")}}</h2>
+                                        <h2> {{task.task_date.strftime("%B %m, %Y")}}</h2>
+                                        </div>
+                                        <h3 class="name">{{task.task_name}}</h3>
+                                        <div class="card-note">
+                                            <h3 class="notes">notes:</h3>
+                                            <div class="container-fluid det-div">
+                                                <p>{{task.details}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                                {%endif%}
+                                {%endfor%}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="uncompleted col-6-lg">
-            {%else%}
-            <div class="uncomplete-card">
-                    moti salo
+
+        <div class="uncompleted">
+            <div class="row uncom-stack">
+                {%for task in task_list%}
+                {%if not task.status_complete:%}
+
+                <div class="col-lg-6">
+                    <div class="uncomplete-card card">
+                        <div class="check-div">
+                            <form action="">
+                                <input type="checkbox" name="complete-check" class="check" id="{{task.id}}">
+                            </form>
+                        </div>
+                        <div class="card-info">
+                            <div class="datetime">
+                            <h2 class="time">{{task.time.strftime("%I:%M %p")}}</h2>
+                            <h2> {{task.task_date.strftime("%B %m, %Y")}}</h2>
+                            </div>
+                            <h3 class="name">{{task.task_name}}</h3>
+                            <div class="card-note">
+                            <h3 class="notes">notes:</h3>
+                            <div class="container-fluid det-div">
+                                <p>{{task.details}}</p>
+                            </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                {%endif%}
+                {%endfor%}
             </div>
 
+
+
+
         </div>
-        {%endif%}
-        {%endfor%}
+
+
 
 
     </div>
-    <div class="btn-group btn-sm">
-        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Small button
-        </button>
-        <div class="dropdown-menu">
-            {{wtf.quick_form(form)}}
-        </div>
-    </div>
-
-
     
+
+
+
+
+
+
+
 
 
 </body>

@@ -13,13 +13,22 @@
     <title>Document</title>
 </head>
 <body>
-    {%include "todo.html"%}
+    {%include "logo.html"%}
     <div class="form-divv">
      <h3>
         login
      </h3>
     {%import "bootstrap/wtf.html" as wtf%}
-    {{wtf.quick_form(form)}}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {{wtf.quick_form(form, novalidate=True)}}
     <a>Sign up</a>
     </div>
 

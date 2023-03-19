@@ -17,6 +17,15 @@
     {%import "bootstrap/wtf.html" as wtf%}
     <div class="form-divv">
     <h3>Sign up</h3>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
     {{wtf.quick_form(form)}}
     </div>
 </body>

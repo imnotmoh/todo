@@ -11,6 +11,8 @@
 
 .logo-div a {
     margin: auto 0;
+    text-decoration: none;
+    color: #98A8F8;
     
 
 }
@@ -24,16 +26,161 @@
     margin-left: 75%;
 }
 
+.help-block {
+    color: #98A8F8;
+}
+
 .task-div {
-    height: 700px;
+    height: 800px;
     margin-top: 20px;
     width: 100%;
     background-color: #98A8F8;
+    overflow: scroll;
+}
+
+.task-head-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .task-div h2 {
     color: #f9fcff;
+    
 }
+
+.accordion,.accordion-button,.accordion-collapse,.accordion-button:not(.collapsed) {
+    background-color: #bccef8;
+}
+.completed-card {
+    background-color: #CDFCF6;
+
+}
+.completed-card h2{
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+
+}
+.completed-card {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.completed-card .card-info{
+
+}
+.completed-card i {
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-right: 30px;
+}
+
+.completed-card p {
+    color: black;
+}
+.card {
+    display: flex;
+    flex-direction: row; 
+    border-radius: 50px;
+    height: 210px;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+
+.uncomplete-card h2 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #f9fcff;
+
+}
+.uncomplete-card h3,p {
+    color: #f9fcff;
+}
+
+.check-div {
+    width: fit-content;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-right: 30px;
+}
+
+.add-btn-div {
+    display: block;
+    background-color: #98A8F8;
+    border-radius: 0%;
+    
+}
+.add-btn {
+    background-color: #f9fcff;
+    color: #98A8F8;
+    margin-top: 10px;
+    margin-right: 20px;
+
+}
+
+.uncomplete-card{
+    background-color: #bccef8;
+}
+.uncom-stack {
+    width: 100%;
+}
+.card-info {
+    width: 80%;
+}
+.notes {
+ 
+}
+
+.det-div p{
+    text-decoration: underline;
+    position: relative;
+    width: 80%;
+    margin-top: 8px;
+    overflow: scroll;
+    text-underline-offset: 5px;
+    
+}
+.card-note {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 15px;
+}
+
+
+.datetime {
+    display: flex;
+    flex-direction: row;
+    gap :20px;
+}
+
+@media screen and (max-width: 500px) {
+    .datetime {
+        display: block;
+    }
+    
+}
+
+@media screen and (max-width: 1200px) and (min-width: 980px) {
+    .datetime {
+            display: block;
+        }
+}
+
+
+
+.check{
+    width: 25px;
+    height: 25px;
+}
+
+.logo-div div{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+
 #submit-button {
             margin-top: 15px;
             --bs-btn-color: #6c757d;

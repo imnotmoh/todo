@@ -1,4 +1,12 @@
 <div class="logo-div">
     <h1>ToDo</h1>
-    <a>sign up</a>
+    {%if not user.is_authenticated%}
+    <div>
+    <a href="{{url_for('login')}}">login</a>
+    <a href="{{url_for('signup')}}">sign up</a>
+    </div>
+    {%else%}
+    <a href="{{url_for('signout')}}">sign out</a>
+    {%endif%}
+
 </div>
